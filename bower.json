@@ -1,0 +1,23 @@
+{
+  "name": "Leopard Luncher",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ajoudanian/luncher",
+  "authors": [
+    "amir ajoudanian <ajoudanian@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "leopard framework": "https://github.com/ajoudanian/leopard-framework.git"
+  }
+}
