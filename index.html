@@ -9,10 +9,38 @@
     <script type="text/javascript" src="js/launcher.js"></script>
     <link rel="stylesheet" href="bower_components/leopard%20framework/css/leopard-languages/en.css"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $('#launcher-toggle').click(function() {
+                nfs_luncher(this,$('#overlay'));
+            });
+        });
+
+
+    </script>
 </head>
 <body>
+
 <div class="leo-container">
-    <button class="btn btn-primary-orange claw-menu"> Open Menu</button>
+    <br>
+    <button class="btn btn-primary-orange claw-menu" id="launcher-toggle"> Open Menu</button>
+</div>
+
+
+<div id="launchpad">
+    <div class="content">
+        <nav>
+            <ul>
+                <li><a class="claw-group">Group</a></li>
+                <li><a class="claw-group-add">Group Add</a></li>
+                <li><a class="claw-group-edit">Group Edit</a></li>
+                <li><a class="claw-group-gear">Group Settings</a></li>
+                <li><a class="claw-group-remove">Group Remove</a></li>
+                <li><a class="claw-user">Users</a></li>
+            </ul>
+
+        </nav>
+    </div>
 </div>
 
 </body>

@@ -1,4 +1,161 @@
-body
-{
+
+body {
+//  background: url(http://media.idownloadblog.com/wp-content/uploads/2014/08/Yosemite-5-wallpaper-thumbnail.png) no-repeat center center fixed;
+//  background-size: cover;
+  background-color: #bbbbbb;
+  font-family: sans-serif;
+  margin: 0;
   padding: 0;
+}
+
+#launchpad {
+  height: 100%;
+  display: none;
+  &.shown {
+    display: block;
+    &.start {
+      -webkit-animation: show 0.4s 1;
+      animation: show 0.4s 1;
+    }
+    &.end {
+      -webkit-animation: hide 0.4s 1;
+      animation: hide 0.4s 1;
+    }
+    .content {
+
+
+      min-height: 100%;
+      min-height: 100vh;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+
+      background: #310505;
+      bottom: 0;
+      left: 0;
+      position: fixed;
+      right: 0;
+      top: 0;
+      &:before {
+        background-size: cover;
+        bottom: 0;
+        content: '';
+        -webkit-filter: blur(30px);
+        filter: blur(30px);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+      }
+      nav {
+        margin: 0 auto;
+
+        ul
+        {
+          .launcher-item {
+            color: white;
+            -webkit-filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
+            font-size: 14px;
+            text-align: center;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+            display: block;
+            &:active {
+              opacity: .6;
+            }
+          }
+        }
+
+
+        &.scale-down {
+          -webkit-animation: scale-down 0.4s 1;
+          animation: scale-down 0.4s 1;
+        }
+        &.scale-up {
+          -webkit-animation: scale-up 0.4s 1;
+          animation: scale-up 0.4s 1;
+        }
+      }
+    }
+  }
+}
+
+
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes scale-up {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+@keyframes scale-up {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+}
+@-webkit-keyframes scale-down {
+  0% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-down {
+  0% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
