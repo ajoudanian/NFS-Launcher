@@ -3,14 +3,56 @@ body {
 //  background: url(http://media.idownloadblog.com/wp-content/uploads/2014/08/Yosemite-5-wallpaper-thumbnail.png) no-repeat center center fixed;
 //  background-size: cover;
   background-color: #bbbbbb;
-  font-family: sans-serif;
   margin: 0;
   padding: 0;
 }
 
 #launchpad {
+  * {
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    -o-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .menu-search-wrapper
+  {
+    position: fixed;
+    z-index: 99999999;
+    top: 50px;
+    width: 280px;
+    left: 50%;
+    margin-left: -140px;
+    font-family: inherit;
+    > input
+    {
+      width: 280px;
+      background-color: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 30px;
+      height: 33px;
+      color: #ffffff;
+      text-indent: 40px;
+      &:focus
+      {
+        box-shadow: none;
+        border-color: rgba(255,255,255,0.4);
+      }
+
+    }
+    &:before
+    {
+      font-family: clawicon ;
+      position: absolute;
+      color: #ffffff;
+      right: 10px;
+      top: 10px;
+    }
+  }
+
   height: 100%;
   display: none;
+  position: fixed;
+  z-index: 99999;
   &.shown {
     display: block;
     &.start {
@@ -34,12 +76,16 @@ body {
       align-items: center;
 
 
-      background: #310505;
+      background: rgba(0,0,0,0.9);
       bottom: 0;
       left: 0;
       position: fixed;
       right: 0;
       top: 0;
+
+
+
+
       &:before {
         background-size: cover;
         bottom: 0;
@@ -54,22 +100,191 @@ body {
       }
       nav {
         margin: 0 auto;
-
-        ul
+        position: relative;
+        > div
         {
-          .launcher-item {
-            color: white;
-            -webkit-filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
-            filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.4));
-            font-size: 14px;
-            text-align: center;
-            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
-            display: block;
-            &:active {
-              opacity: .6;
+          opacity: 0;
+          visibility: hidden;
+
+          z-index: 100;
+          -webkit-transform: scale(1.8);
+          -moz-transform: scale(1.8);
+          -o-transform: scale(1.8);
+          transform: scale(1.8);
+
+          top: 0;
+          left: 0;
+
+          width: 100%;
+
+          @media (min-width: 510px) {
+            position: absolute;
+            width: 500px;
+            height: 440px;
+            margin-left: -250px;
+            margin-top: -220px;
+          }
+
+          @media (min-width: 980px) {
+            width: 960px;
+            height: 440px;
+            margin-left: -480px;
+            margin-top: -220px;
+          }
+
+
+
+
+          &.launcher-small
+          {
+            -webkit-transform: scale(0.8);
+            -moz-transform: scale(0.8);
+            -o-transform: scale(0.8);
+            transform: scale(0.8);
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -o-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+            opacity: 0.6;
+            visibility: visible;
+          }
+          &.launcher-active
+          {
+            opacity: 1;
+            visibility: visible;
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+          }
+          &.launcher-hidden
+          {
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transform: scale(0.6);
+            -moz-transform: scale(0.6);
+            -o-transform: scale(0.6);
+            transform: scale(0.6);
+          }
+
+          ul
+          {
+            width: 100%;
+            max-width: 1100px;
+            .launcher-item {
+
+
+              width: 33%;
+              margin:10px 0;
+              float: left;
+              display: block;
+
+              @media (min-width: 510px) {
+                width: 20%;
+              }
+
+
+              &:active {
+                opacity: .6;
+              }
+              a {
+                font-family: inherit;
+                display: block;
+                margin: 0 auto;
+                font-size: 14px;
+                text-align: center;
+
+
+                width: 90%;
+                height: 110px;
+
+                @media (min-width: 510px) {
+                  width: 90px;
+                  height: 130px;
+                }
+                @media (min-width: 980px) {
+                  width: 150px;
+                  height: 150px;
+                }
+
+
+                border-radius: 10px;
+                &.parent
+                {
+                  background-color: rgba(255, 255, 255, 0.1);
+                }
+
+                &:hover
+                {
+                  text-decoration: none;
+                  color: #ffffff !important;
+
+                }
+                &:before
+                {
+                  font-family: clawicon;
+                  display: block;
+                  text-shadow: 2px 3px 3px rgba(0,0,0,0.7);
+
+                  font-size: 62px;
+                  line-height: 78px;
+                  @media (min-width: 510px) {
+                    font-size: 62px;
+                    line-height: 78px;
+                  }
+                  @media (min-width: 980px) {
+                    font-size: 100px;
+                    line-height: 115px;
+                  }
+
+                }
+                span
+                {
+                  color: #ffffff;
+                }
+                &.menu-favorite
+                {
+                  background-color: #fff;
+                  >span
+                  {
+                    color: #000;
+                  }
+                  &:before
+                  {
+                    color: #ea6445;
+                    font-family: 'clawicon';
+                    font-style: normal;
+                    font-weight: normal;
+                    font-variant: normal;
+                    text-transform: none;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    content: "\e84c";
+                    text-shadow: none;
+                  }
+                }
+              }
+
+            }
+            &:after
+            {
+              clear: both;
+              display: block;
+              content: '';
             }
           }
+
         }
+
+        div:not(#pager)
+        {
+          background-color: rgba(0,0,0,0.5);
+          padding: 30px;
+          border-radius: 30px;
+        }
+
+
 
 
         &.scale-down {
